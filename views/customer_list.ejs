@@ -1,0 +1,57 @@
+<style type="text/css">
+	#divCustomer {
+		width: 600px;
+	}
+
+	#divContent table, #divContent th, #divContent td {
+		border: 1px solid red;
+		border-collapse: collapse;
+	}
+
+	th {
+		background-color: #4dc71f;
+	}
+
+	select, input {
+		height: 25px;
+	}
+</style>
+
+<h3><%= page_title %></h3>
+<div id="divCustomer">
+	<div id="divCondition">
+		<form action="/customer/search" method="post">
+			<select id="selectCondition" name="conditionKey">
+				<option value="username">客户名称</option>
+				<option value="email">联系邮箱</option>
+				<option value="mobile">联系电话</option>
+			</select>
+			<input type="text" id="txtCondition" name="conditionValue"/>
+			<input type="submit" id="btnSearch" value="查询"/>
+			<a href="customer/add">新增客户</a>
+		</form>
+	</div>
+	<div id="divContent">
+		<table id="tbCustomer">
+			<tr>
+				<th>客户编号</th>
+				<th>客户名称</th>
+				<th>联系邮箱</th>
+				<th>联系电话</th>
+				<th>&nbsp;操&nbsp;&nbsp;作&nbsp;</th>
+			</tr>
+			<% data.forEach(function(item) { %>
+			<tr>
+				<td><%= item.userid %></td>
+				<td><%= item.username %></td>
+				<td><%= item.email %></td>
+				<td><%= item.mobile %></td>
+				<td>
+					<a href="customer/edit/<%= item.userid %>">修改</a>&nbsp;&nbsp;
+					<a href="customer/delete/<%= item.userid %>">删除</a>
+				</td>
+			</tr>
+			<% }); %>
+		</table>
+	</div>
+</div>
