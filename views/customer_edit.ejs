@@ -1,3 +1,9 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title><%= page_title %></title>
+</head>
+<body>
 <h3><%= page_title %></h3>
 <form action="/customer/edit/<%= data[0].userid %>" method="post">
 	<label>帐号</label>
@@ -9,3 +15,5 @@
 	<input type="submit" id="btnSubmit" value="提交"/>&nbsp;&nbsp;
 	<input type="reset" id="btnReset" value="重置"/>
 </form>
+</body>
+</html>
